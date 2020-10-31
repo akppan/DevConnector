@@ -11,7 +11,7 @@ const posts = require('./routes/api/posts');
 const app = express();
 
 //Body Parser middleware
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json);
 
 //DB Config
@@ -20,12 +20,15 @@ const db = require('./config/keys').mongoURI;
 //connect to mongoDB
 mongoose.connect(db,{useNewUrlParser:true,useUnifiedTopology:true})
     .then(() => console.log('MongoDB connected'))
-    .catch((err) => console.log(err))
+    .catch((err) => console.log(err));
 
+// mongoose.connection.on('error',()=>{
+//     throw new Error('unable to connect to database');
+// })
 
-// app.get('/',(req,res) => {
-//     res.send('Hello!');
-// });
+app.get('/',(req,res) => {
+    res.send('Hello!');
+});
 
 //Passport Middleware
 app.use(passport.initialize());
