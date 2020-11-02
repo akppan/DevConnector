@@ -11,8 +11,8 @@ const posts = require('./routes/api/posts');
 const app = express();
 
 //Body Parser middleware
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(bodyParser.json);
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 
 //DB Config
 const db = require('./config/keys').mongoURI;
