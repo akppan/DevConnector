@@ -208,7 +208,7 @@ router.post('/experience',passport.authenticate('jwt',{session:false}), (req,res
 // @access  Private
 
 router.post('/education',passport.authenticate('jwt',{session:false}), (req,res) => {
-    const { errors, isValid } = validateExperienceInput(req.body);
+    const { errors, isValid } = validateEducationInput(req.body);
 
     //Check Validation
     if(!isValid){
