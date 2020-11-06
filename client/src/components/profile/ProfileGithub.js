@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class ProfileGithub extends Component {
-    constructor(){
+    constructor(props){
         // The client id and secret you will get from "github register application"
         super(props);
         this.state = {
